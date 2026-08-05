@@ -1,0 +1,28 @@
+-- ============================================================================
+-- COMPLETE SUPABASE SCHEMA — REFERENCE FILE
+-- ============================================================================
+-- This is the complete database schema for the Delulu application.
+-- It has been applied to the Supabase project via the MCP migration tool.
+-- All statements are idempotent (safe to re-run).
+-- ============================================================================
+
+-- TABLES:
+--   profiles, books, chapters, comments, chapter_likes, follows,
+--   libraries, reading_history, listening_history, subscription_plans,
+--   subscriptions
+--
+-- STORAGE BUCKETS:
+--   covers (public)       — book cover images
+--   content-media (public) — chapter images & uploaded media
+--   payments (public)      — payment screenshots (folder-scoped insert)
+--
+-- AUTH:
+--   Supabase Auth (email/password)
+--   Trigger: on_auth_user_created → auto-creates profile row on signup
+--   Role check: is_admin() function queries profiles.role
+--
+-- REALTIME:
+--   profiles, books, chapters, comments, subscriptions
+--
+-- See supabase/migrations/0001-0006 for the original migration files.
+-- This consolidated version was applied as migration 0007.
