@@ -13,10 +13,12 @@ import {
   FileText,
   Bookmark,
   Share2,
+  Compass,
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import type { Book, Chapter } from '@/types'
 import { Button } from '@/components/ui/button'
+import { BookCard } from '@/components/BookCard'
 
 function stripHtml(input?: string | null) {
   if (!input) return ''
@@ -54,13 +56,14 @@ export function BookPage() {
   const { id } = useParams()
   const [book, setBook] = useState<Book | null>(null)
   const [chapters, setChapters] = useState<Chapter[]>([])
+  const [recommended, setRecommended] = useState<Book[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchBook = async () => {
       if (!id) return
 
-      const [bookRes, chapterRes] = await Promise.all([
+      const [bookRes, chapterRes, recRes] = await Promise.all([
         supabase
           .from('books')
           .select('*, author:profiles!books_author_id_fkey(*)')
@@ -71,10 +74,18 @@ export function BookPage() {
           .select('*')
           .eq('book_id', id)
           .order('position', { ascending: true }),
+        supabase
+          .from('books')
+          .select('*, author:profiles!books_author_id_fkey(*)')
+          .eq('status', 'published')
+          .neq('id', id)
+          .order('updated_at', { ascending: false })
+          .limit(6),
       ])
 
       setBook((bookRes.data as Book) ?? null)
       setChapters((chapterRes.data as Chapter[]) ?? [])
+      setRecommended((recRes.data as Book[]) ?? [])
       setLoading(false)
     }
 
@@ -328,6 +339,34 @@ export function BookPage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="container py-10 md:py-12 border-t border-border/20">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 shadow-sm shadow-primary/10">
+            <Compass className="h-5 w-5 text-primary" />
+          </div>
+          <div>
+            <h2 className="font-serif text-2xl font-semibold tracking-tight">More to explore</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Similar stories you may like
+            </p>
+          </div>
+        </div>
+
+        {recommended.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {recommended.map((item) => (
+              <div key={item.id} className="w-full">
+                <BookCard book={item} className="h-full" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-dashed border-border bg-card/90 p-8 text-center text-sm text-muted-foreground">
+            No related stories available yet.
+          </div>
+        )}
       </section>
     </div>
   )
