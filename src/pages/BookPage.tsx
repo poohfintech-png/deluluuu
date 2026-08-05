@@ -253,7 +253,7 @@ export function BookPage() {
                 )}
               </div>
 
-              <div className="max-w-3xl rounded-3xl border border-border/30 bg-card/70 backdrop-blur-xl p-5 md:p-6 mb-8">
+              <div className="max-w-3xl rounded-3xl border border-border/30 bg-card/70 backdrop-blur-xl p-5 md:p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary/10 border border-primary/20">
                     <FileText className="h-4 w-4 text-primary" />
@@ -265,7 +265,7 @@ export function BookPage() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Button size="lg" className="bg-primary/20 hover:bg-primary/30 border border-border/30 text-foreground" asChild>
                   <Link to={chapters[0] ? `/book/${book.id}/chapter/${chapters[0].id}` : '#'}>
                     Read Now <ChevronRight className="h-4 w-4" />
@@ -301,8 +301,8 @@ export function BookPage() {
         </div>
       </section>
 
-      <section className="container py-10 md:py-12">
-        <div className="flex items-center justify-between mb-5 md:mb-6">
+      <section className="container py-10">
+        <div className="flex items-center justify-between mb-5">
           <h2 className="font-serif text-2xl font-semibold">Chapters</h2>
           <span className="text-sm text-muted-foreground">
             {chapters.length} total
@@ -341,7 +341,7 @@ export function BookPage() {
         </div>
       </section>
 
-      <section className="container py-10 md:py-12 border-t border-border/20">
+      <section className="container py-10 border-t border-border/20">
         <div className="flex items-center gap-3 mb-6">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 shadow-sm shadow-primary/10">
             <Compass className="h-5 w-5 text-primary" />
