@@ -93,10 +93,10 @@ export function BookPage() {
   }, [id])
 
   const stats = useMemo(() => {
-    const views = (book as any)?.views ?? (book as any)?.view_count ?? (book as any)?.viewCount ?? null
-    const likes = (book as any)?.likes ?? (book as any)?.like_count ?? (book as any)?.likeCount ?? null
-    const chapterCount = chapters.length || (book as any)?.chapter_count || (book as any)?.chapterCount || 0
-    const updatedAt = (book as any)?.updated_at ?? (book as any)?.updatedAt ?? null
+    const views = book?.view_count ?? null
+    const likes = book?.like_count ?? null
+    const chapterCount = chapters.length || book?.chapter_count || 0
+    const updatedAt = book?.updated_at ?? null
 
     return {
       views: formatCount(views),
@@ -140,16 +140,11 @@ export function BookPage() {
     )
   }
 
-  const cover = book.cover_url || book.coverUrl || null
+  const cover = book.cover_url
   const title = book.title || 'Untitled Story'
-  const authorName =
-    book.author?.full_name ||
-    book.author?.name ||
-    book.author_name ||
-    book.authorName ||
-    'Anonymous Writer'
+  const authorName = book.author?.display_name ?? 'Anonymous Writer'
 
-  const description = stripHtml(book.description || book.excerpt) || 'No summary available yet.'
+  const description = stripHtml(book.description) || 'No summary available yet.'
 
   return (
     <div className="min-h-screen bg-background text-foreground">

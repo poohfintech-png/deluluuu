@@ -242,7 +242,7 @@ export function ChapterEditor({ chapter, bookId, onSaved, onCancel }: ChapterEdi
           {chapter && (
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               {autosaveState === 'saving' && <><Loader2 className="h-3 w-3 animate-spin" /> Saving...</>}
-              {autosaveState === 'saved' && <><CheckCircle2 className="h-3 w-3 text-green-400" /> Saved</>}
+              {autosaveState === 'saved' && <><CheckCircle2 className="h-3 w-3 text-success" /> Saved</>}
               {autosaveState === 'error' && <><AlertCircle className="h-3 w-3 text-destructive" /> Save failed</>}
               {autosaveState === 'idle' && <span className="text-muted-foreground/50">Autosave on</span>}
             </div>

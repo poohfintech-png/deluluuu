@@ -399,7 +399,7 @@ function BookForm({
                 </div>
               )}
               {coverUrl && !uploading && (
-                <p className="text-xs text-green-400">Cover uploaded and ready to save</p>
+                <p className="text-xs text-success">Cover uploaded and ready to save</p>
               )}
             </div>
           </div>

@@ -88,7 +88,7 @@ export function AdminSecurityPage() {
             </div>
           )}
           <div className="mt-4 flex items-center gap-2">
-            <CheckCircle className="h-4 w-4 text-green-500" />
+            <CheckCircle className="h-4 w-4 text-success" />
             <span className="text-sm text-muted-foreground">All systems operational</span>
           </div>
         </CardContent>
@@ -106,7 +106,7 @@ export function AdminSecurityPage() {
                 {loginHistory.map((entry) => (
                   <div key={entry.id} className="flex items-center gap-3 p-2 rounded-lg border border-border">
                     {entry.success ? (
-                      <CheckCircle className="h-4 w-4 text-green-500 shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-success shrink-0" />
                     ) : (
                       <XCircle className="h-4 w-4 text-destructive shrink-0" />
                     )}

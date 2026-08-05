@@ -155,7 +155,7 @@ export function DramaDetailPage() {
                 <Badge variant="secondary">{episodes.length} Episodes</Badge>
                 <Badge variant="secondary">{freeEpisodes.length} Free</Badge>
                 {premiumEpisodes.length > 0 && (
-                  <Badge className="bg-amber-500/90 text-white">{premiumEpisodes.length} Premium</Badge>
+                  <Badge className="bg-warning/90 text-white">{premiumEpisodes.length} Premium</Badge>
                 )}
               </div>
             </div>
@@ -223,7 +223,7 @@ export function DramaDetailPage() {
                         </span>
                       )}
                       {ep.is_premium ? (
-                        <Badge className="bg-amber-500/90 text-white">
+                        <Badge className="bg-warning/90 text-white">
                           <Lock className="h-3 w-3 mr-1" /> {coinsEnabled ? `${ep.coin_unlock_price} Coins` : 'Premium'}
                         </Badge>
                       ) : (

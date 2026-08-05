@@ -8,7 +8,6 @@ import {
   Coins,
   BookOpen,
   Heart,
-  MessageSquare,
   Lock,
   LogOut,
   Settings,

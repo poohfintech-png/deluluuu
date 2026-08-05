@@ -23,18 +23,18 @@ function formatCount(value?: number | string | null) {
 }
 
 function getBookMeta(book: Book) {
-  const views = (book as any).views ?? (book as any).view_count ?? (book as any).viewCount ?? null
-  const likes = (book as any).likes ?? (book as any).like_count ?? (book as any).likeCount ?? null
-  const authorLabel = book.author?.full_name || book.author?.name || book.author_name || book.authorName || ''
+  const views = book.view_count ?? null
+  const likes = book.like_count ?? null
+  const authorLabel = book.author?.display_name ?? ''
   return { views, likes, authorLabel }
 }
 
 export function BookCard({ book, className }: BookCardProps) {
-  const cover = book.cover_url || book.coverUrl || null
+  const cover = book.cover_url
   const title = book.title || 'Untitled Story'
   const { views, likes, authorLabel } = getBookMeta(book)
 
-  const description = stripHtml(book.description || book.excerpt) || 'A story waiting to be discovered.'
+  const description = stripHtml(book.description) || 'A story waiting to be discovered.'
   const viewLabel = formatCount(views)
   const likeLabel = formatCount(likes)
   const authorText = authorLabel ? authorLabel : 'Anonymous Writer'

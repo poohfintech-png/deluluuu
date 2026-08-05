@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { Check, Upload, Lock, Smartphone, Sparkles, BadgeCheck, XCircle, Clock3, Globe, MapPin, Copy, FileText } from 'lucide-react'
+import { Check, Upload, Lock, Smartphone, Sparkles, BadgeCheck, XCircle, Clock3, Globe, MapPin, FileText } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
 import { useFeatureFlags } from '@/contexts/FeatureFlagsContext'
@@ -151,8 +151,8 @@ export function SubscribePage() {
     return (
       <div className="container max-w-2xl py-12">
         <div className="text-center mb-8">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 border border-green-500/20 mx-auto mb-4">
-            <BadgeCheck className="h-8 w-8 text-green-400" />
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10 border border-success/20 mx-auto mb-4">
+            <BadgeCheck className="h-8 w-8 text-success" />
           </div>
           <h1 className="font-serif text-3xl font-semibold mb-2">You're subscribed!</h1>
           <p className="text-muted-foreground">Enjoy unlimited access to all premium content.</p>
@@ -238,7 +238,7 @@ export function SubscribePage() {
                   <ul className="space-y-2 text-sm">
                     {plan.benefits.map((b) => (
                       <li key={b} className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-400" />
+                        <Check className="h-4 w-4 text-success" />
                         {b === 'premium_books' ? 'Access to all premium books' :
                          b === 'premium_audiobooks' ? 'Access to premium audiobooks' :
                          b === 'premium_reels' ? 'Access to premium reels' :
@@ -387,7 +387,7 @@ export function SubscribePage() {
                 onClick={() => !uploading && fileInputRef.current?.click()}
                 className={cn(
                   'flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-border p-8 cursor-pointer hover:border-primary/40 transition-colors',
-                  screenshotUrl && 'border-green-500/40 bg-green-500/5',
+                  screenshotUrl && 'border-success/40 bg-success/5',
                 )}
               >
                 {uploading ? (
@@ -397,8 +397,8 @@ export function SubscribePage() {
                   </div>
                 ) : screenshotUrl ? (
                   <div className="flex flex-col items-center gap-2">
-                    <BadgeCheck className="h-8 w-8 text-green-400" />
-                    <p className="text-sm text-green-400">Screenshot uploaded</p>
+                    <BadgeCheck className="h-8 w-8 text-success" />
+                    <p className="text-sm text-success">Screenshot uploaded</p>
                     <img src={screenshotUrl} alt="Payment proof" className="max-h-32 rounded-md mt-2" />
                   </div>
                 ) : (

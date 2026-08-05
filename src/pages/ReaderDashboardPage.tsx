@@ -8,11 +8,9 @@ import {
   UserPlus,
   Bookmark,
   History,
-  Sparkles,
   PlayCircle,
   Compass,
   CheckCircle2,
-  Flame,
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
@@ -235,7 +233,7 @@ export function ReaderDashboardPage() {
               {completedBooks.length > 0 && (
                 <div>
                   <h3 className="font-serif text-lg font-semibold mb-4 flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-green-500" /> Worlds I Completed
+                    <CheckCircle2 className="h-4 w-4 text-success" /> Worlds I Completed
                   </h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {completedBooks.map((book) => <BookCard key={book.id} book={book} />)}

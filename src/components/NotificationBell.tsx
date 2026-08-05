@@ -63,7 +63,7 @@ export function NotificationBell() {
   }
 
   const iconFor = (type: string) => {
-    if (type === 'success') return <CheckCircle2 className="h-4 w-4 text-green-400" />
+    if (type === 'success') return <CheckCircle2 className="h-4 w-4 text-success" />
     if (type === 'error') return <XCircle className="h-4 w-4 text-destructive" />
     return <Info className="h-4 w-4 text-primary" />
   }

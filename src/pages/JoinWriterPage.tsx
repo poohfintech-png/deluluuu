@@ -184,11 +184,11 @@ export function JoinWriterPage() {
       <div className="container max-w-md py-20 text-center">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 border border-primary/20 mx-auto mb-4">
           {existingApplication.status === 'approved' ? (
-            <CheckCircle2 className="h-8 w-8 text-green-500" />
+            <CheckCircle2 className="h-8 w-8 text-success" />
           ) : existingApplication.status === 'rejected' ? (
             <XCircle className="h-8 w-8 text-destructive" />
           ) : (
-            <Clock className="h-8 w-8 text-amber-500" />
+            <Clock className="h-8 w-8 text-warning" />
           )}
         </div>
         <h1 className="font-serif text-2xl font-semibold mb-2">
@@ -346,8 +346,8 @@ export function JoinWriterPage() {
       <Dialog open={submitted} onOpenChange={() => navigate('/')}>
         <DialogContent>
           <DialogHeader>
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10 border border-green-500/20 mx-auto mb-4">
-              <CheckCircle2 className="h-6 w-6 text-green-500" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-success/10 border border-success/20 mx-auto mb-4">
+              <CheckCircle2 className="h-6 w-6 text-success" />
             </div>
             <DialogTitle className="text-center">Application Submitted!</DialogTitle>
             <DialogDescription className="text-center">

@@ -37,8 +37,8 @@ const CATEGORIES = [
 
 const STATUS_OPTIONS: { value: FeatureFlagStatus; label: string; icon: typeof CheckCircle2; color: string }[] = [
   { value: 'disabled', label: 'Disabled', icon: XCircle, color: 'text-destructive' },
-  { value: 'coming_soon', label: 'Coming Soon', icon: Clock, color: 'text-amber-500' },
-  { value: 'enabled', label: 'Enabled', icon: CheckCircle2, color: 'text-green-500' },
+  { value: 'coming_soon', label: 'Coming Soon', icon: Clock, color: 'text-warning' },
+  { value: 'enabled', label: 'Enabled', icon: CheckCircle2, color: 'text-success' },
 ]
 
 const PAYMENT_MODES: { value: PaymentMode; label: string }[] = [
@@ -316,16 +316,16 @@ export function AdminFeatureFlagsPage() {
                                   return (
                                     <div key={r.id} className="flex items-center gap-1 text-[11px] text-muted-foreground">
                                       {isMet ? (
-                                        <CheckCircle2 className="h-2.5 w-2.5 text-green-500" />
+                                        <CheckCircle2 className="h-2.5 w-2.5 text-success" />
                                       ) : (
-                                        <AlertTriangle className="h-2.5 w-2.5 text-amber-500" />
+                                        <AlertTriangle className="h-2.5 w-2.5 text-warning" />
                                       )}
                                       {reqFlag?.feature_name ?? r.required_feature_key}
                                     </div>
                                   )
                                 })}
                                 {!ok && flag.status !== 'enabled' && (
-                                  <p className="text-[10px] text-amber-500 mt-1">
+                                  <p className="text-[10px] text-warning mt-1">
                                     Enable required features first to activate this one.
                                   </p>
                                 )}

@@ -196,7 +196,7 @@ export function AdminReelsPage() {
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <h3 className="font-medium truncate">{reel.title}</h3>
                     <Badge variant={reel.status === 'published' ? 'success' : 'secondary'} className="capitalize">{reel.status}</Badge>
-                    {reel.is_premium && <Badge className="bg-amber-500/90 text-white"><Lock className="h-3 w-3" /></Badge>}
+                    {reel.is_premium && <Badge className="bg-warning/90 text-white"><Lock className="h-3 w-3" /></Badge>}
                     {reel.is_independent_drama ? (
                       <Badge variant="secondary"><Star className="h-3 w-3" /> Drama</Badge>
                     ) : (

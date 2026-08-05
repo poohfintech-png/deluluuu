@@ -245,9 +245,9 @@ export function ChapterReaderPage() {
           <div className="mb-8 relative overflow-hidden rounded-[1.5rem] animate-fade-in">
             <img src={chapter.banner_url} alt={chapter.title} className="w-full max-h-72 object-cover" />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/15 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#221916] via-[#221916]/80 to-transparent" />
-         </div>
-       )}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-card via-card/80 to-transparent" />
+          </div>
+        )}
         {/* Chapter-level audio */}
         {chapter.audio_url && (
           <div className="mb-8">

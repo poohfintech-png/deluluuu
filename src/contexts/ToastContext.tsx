@@ -42,12 +42,12 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               key={t.id}
               className={cn(
                 'pointer-events-auto flex items-start gap-3 rounded-lg border p-4 shadow-lg animate-fade-in',
-                t.type === 'success' && 'border-green-500/30 bg-green-500/10',
+                t.type === 'success' && 'border-success/30 bg-success/10',
                 t.type === 'error' && 'border-destructive/30 bg-destructive/10',
                 t.type === 'info' && 'border-border bg-card',
               )}
             >
-              {t.type === 'success' && <CheckCircle2 className="h-5 w-5 text-green-400 shrink-0 mt-0.5" />}
+              {t.type === 'success' && <CheckCircle2 className="h-5 w-5 text-success shrink-0 mt-0.5" />}
               {t.type === 'error' && <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />}
               {t.type === 'info' && <Info className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />}
               <p className="text-sm text-foreground flex-1">{t.message}</p>

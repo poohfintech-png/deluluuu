@@ -168,7 +168,7 @@ export function EpisodePlayerPage() {
           <div className="flex items-center gap-2 mb-1">
             <Badge variant="secondary">EP {episode.episode_number}</Badge>
             {episode.is_premium ? (
-              <Badge className="bg-amber-500/90 text-white"><Lock className="h-3 w-3 mr-1" /> Premium</Badge>
+              <Badge className="bg-warning/90 text-white"><Lock className="h-3 w-3 mr-1" /> Premium</Badge>
             ) : (
               <Badge variant="success">Free</Badge>
             )}
@@ -235,7 +235,7 @@ export function EpisodePlayerPage() {
                     <h3 className="text-sm font-medium truncate">{ep.title}</h3>
                   </div>
                   {epLocked ? (
-                    <Lock className="h-4 w-4 text-amber-500 shrink-0" />
+                    <Lock className="h-4 w-4 text-warning shrink-0" />
                   ) : (
                     <PlayCircle className="h-4 w-4 text-muted-foreground shrink-0" />
                   )}
