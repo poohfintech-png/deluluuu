@@ -12,6 +12,7 @@ import {
   Clock,
   User as UserIcon,
   ChevronRight,
+  Sparkles,
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/contexts/AuthContext'
